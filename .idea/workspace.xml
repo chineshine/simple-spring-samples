@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\workspace\repository" />
+        <option name="mavenHome" value="D:/ntx/develop/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="D:\ntx\develop\apache-maven-3.5.2\conf\chine\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1U8QUyJj7sdeQWWazUP0jmQfO4b" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+</project>
