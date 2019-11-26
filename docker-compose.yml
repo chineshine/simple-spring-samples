@@ -1,0 +1,39 @@
+version: '3'
+services:
+  spring-boot-sample:
+    build: ./spring-boot-sample
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-sample
+
+#  rabbitmq:
+#    image: rabbitmq:3.8-management
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
+#    volumes:
+#      - "/data/rabbitmq:/var/lib/rabbitmq"
+#    hostname: rabbit-spring
+#    environment:
+#      RABBITMQ_DEFAULT_VHOST: spring
+#      RABBITMQ_DEFAULT_USER: admin
+#      RABBITMQ_DEFAULT_PASS: admin
+#    networks:
+#      - spring-sample
+
+#    mariadb:
+#      image: mariadb:10.4-bionic
+#      ports:
+#        - "3306:3306"
+#      volumes:
+#        - "/data/mariadb/conf:/etc/mysql/conf.d"
+#        - "/data/mariadb/data:/var/lib/mysql"
+#      environment:
+#        MYSQL_ROOT_PASSWORD: maria1234
+#      networks:
+#        - spring-sample
+
+
+networks:
+  spring-sample:
