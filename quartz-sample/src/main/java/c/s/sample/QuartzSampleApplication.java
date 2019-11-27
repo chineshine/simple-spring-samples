@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class QuartzSample {
+public class QuartzSampleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(QuartzSample.class);
+        SpringApplication.run(QuartzSampleApplication.class);
     }
 }

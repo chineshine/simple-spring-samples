@@ -7,6 +7,20 @@ services:
     networks:
       - spring-sample
 
+#  quartz-sample:
+#    build: ./quartz-sample
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - spring-sample
+
+#  mybatis-sample:
+#    build: ./mybatis-sample
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - spring-sample
+
 #  rabbitmq:
 #    image: rabbitmq:3.8-management
 #    ports:
