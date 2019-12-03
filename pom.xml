@@ -6,7 +6,7 @@
 	<artifactId>simple-spring-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>simple spring sample</name>
+	<name>simple-spring-sample</name>
 	<description>simple spring project sample</description>
 
 	<properties>
@@ -26,6 +26,29 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -49,6 +72,8 @@
 		<module>mybatis-sample</module>
 		<module>quartz-sample</module>
         <module>freemarker-sample</module>
-    </modules>
+        <module>spring-cloud-sample</module>
+        <module>spring-security-sample</module>
+	</modules>
 
 </project>
