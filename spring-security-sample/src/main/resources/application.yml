@@ -1,0 +1,36 @@
+server:
+  port: 10086
+
+#logging:
+#  level:
+#    root: WARN
+#    org.springframework.web: INFO
+#    org.springframework.security: INFO
+
+
+spring:
+  application:
+    name: spring-security-sample
+
+  jpa:
+    database: H2
+    show-sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.H2Dialect
+
+  datasource:
+    url: jdbc:h2:mem:testdb2
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: true
+        web-allow-others: false
+
+  thymeleaf:
+    cache: false        
