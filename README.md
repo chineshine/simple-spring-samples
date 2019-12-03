@@ -10,9 +10,15 @@ some simple sample of spring project
 - mybatis-sample  
   how to use mybatis to generate dao and mapper
 
+- spring-security-sample  
+  simple spring security sample for securing your project
+  
+- freemarker-sample  
+  freemarker sample
 
 ## remark
 some package has put into pom of simple-spring-sample
-- spring-test
 - spring-actuator
 - lombok
+- spring-test
+- junit
