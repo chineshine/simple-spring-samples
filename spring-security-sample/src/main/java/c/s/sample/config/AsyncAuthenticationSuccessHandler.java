@@ -19,6 +19,7 @@ public class AsyncAuthenticationSuccessHandler implements AuthenticationSuccessH
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
+		// 异步调用成功返回
 		response.getWriter().print("111");
 	}
 

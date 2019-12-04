@@ -21,6 +21,7 @@ public class AsyncAuthenticationFailureHandler implements AuthenticationFailureH
 			AuthenticationException exception) throws IOException, ServletException {
 		response.setHeader("Content-type", "text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		// 异步调用  失败返回 403
 		response.setStatus(HttpServletResponse.SC_FORBIDDEN);
 //		response.sendError(HttpServletResponse.SC_FORBIDDEN, exception.getMessage());
 		response.getWriter().print(exception.getMessage());

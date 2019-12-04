@@ -26,6 +26,12 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 /**
  * @author Joe Grandja
  */
+/**
+	1. 这是 spring 官方例子
+	2. 如果使用这个例子,请注释 securityConfiguration 这个类
+	3. 打开这个类的 <code> @EnableWebSecurity </code> <code>@Bean</code> 注解
+	4. 打开 38行 extends 注解
+ */
 //@EnableWebSecurity
 public class SecurityConfig {
 // spring 官方例子 
