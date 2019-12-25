@@ -6,6 +6,13 @@ services:
       - "8080:8080"
     networks:
       - spring-sample
+      
+  spring-jpa-sample:
+    build: ./spring-jpa-sample
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-sample
 
 #  quartz-sample:
 #    build: ./quartz-sample
