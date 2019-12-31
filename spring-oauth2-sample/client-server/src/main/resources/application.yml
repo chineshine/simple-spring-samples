@@ -1,0 +1,23 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+#          google:
+#            client-id: your-app-client-id
+#            client-secret: your-app-client-secret
+          github:
+            client-id: 65c6d10df196925766f5
+            client-secret: f3fe282be09820ef3ea84a5de3991877d951e8e7
+#          facebook:
+#            client-id: your-app-client-id
+#            client-secret: your-app-client-secret
+#          okta:
+#            client-id: your-app-client-id
+#            client-secret: your-app-client-secret
+#        provider:
+#          okta:
+#            authorization-uri: https://your-subdomain.oktapreview.com/oauth2/v1/authorize
+#            token-uri: https://your-subdomain.oktapreview.com/oauth2/v1/token
+#            user-info-uri: https://your-subdomain.oktapreview.com/oauth2/v1/userinfo
+#            jwk-set-uri: https://your-subdomain.oktapreview.com/oauth2/v1/keys
