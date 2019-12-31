@@ -50,7 +50,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -80,8 +79,10 @@
 		<module>mybatis-sample</module>
 		<module>quartz-sample</module>
 		<module>freemarker-sample</module>
-		<module>spring-cloud-sample</module>
 		<module>spring-security-sample</module>
+		<module>spring-jpa-sample</module>
+		<module>spring-oauth2-sample</module>
+		<module>spring-cloud-sample</module>
 	</modules>
 
 </project>

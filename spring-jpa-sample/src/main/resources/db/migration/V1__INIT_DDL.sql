@@ -13,4 +13,4 @@ create table if not exists `authorities`(
 	username varchar(255) comment '用户名称',
 	authority varchar(255) comment '授权码',
 	PRIMARY KEY(id)
-	);
+);

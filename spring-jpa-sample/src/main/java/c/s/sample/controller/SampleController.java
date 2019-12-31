@@ -26,7 +26,7 @@ public class SampleController {
 		return "this is the index data";
 	}
 
-	@GetMapping("/users")
+	@GetMapping("users")
 	public List<Users> users(){
 		return usersRepository.findAll();
 	}
