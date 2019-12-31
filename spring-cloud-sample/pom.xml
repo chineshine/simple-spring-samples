@@ -39,5 +39,7 @@
 	<modules>
 
 	<module>eureka</module>
+	<module>feign-server</module>
+	<module>feign-client</module>
 	</modules>
 </project>
