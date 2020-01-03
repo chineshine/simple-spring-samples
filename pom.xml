@@ -83,6 +83,7 @@
 		<module>spring-jpa-sample</module>
 		<module>spring-oauth2-sample</module>
 		<module>spring-cloud-sample</module>
+		<module>spring-webflux-sample</module>
 	</modules>
 
 </project>
