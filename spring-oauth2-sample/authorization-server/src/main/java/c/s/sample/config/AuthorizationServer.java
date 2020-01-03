@@ -49,7 +49,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		ClientDetailsService clientDetailsService = clients.jdbc(dataSource).passwordEncoder(passwordEncoder)
-// 下面两句注释不能用,因为 spring 不会像 users 那样自动创建表
+// 下面两句注释不能用,因为 spring 不会像自动 users表 那样自动创建表oauth_client_details
 		// .withClient("cli1").secret(passwordEncoder.encode("123456")).accessTokenValiditySeconds(600_000_000)
 //				.and()
 				.build();

@@ -8,3 +8,9 @@ docker-compose 相关内容说明,及相关配置文件
 ```
 	/data/mariadb/conf
 ```
+
+## docker maven 插件
+原始插件 `docker-maven-plugin`: 
+`https://github.com/spotify/docker-maven-plugin`  
+官方建议改用 `dockerfile-maven-plugin`:
+`https://github.com/spotify/dockerfile-maven`

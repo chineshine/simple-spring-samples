@@ -1,0 +1,24 @@
+server:
+  port: 10001
+
+spring:
+  profiles:
+    active: native
+    
+#management:
+#  context-path: /config-server
+# 不要与项目名称同名,会被误读为配置文件
+
+eureka:
+  client:
+# 参考配置类: org.springframework.cloud.netflix.eureka.EurekaClientConfigBean  
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+  instance:
+# 参考配置类: org.springframework.cloud.netflix.eureka.EurekaInstanceConfigBean
+    prefer-ip-address: true
+    nonSecurePort: ${server.port}
+    leaseRenewalIntervalInSeconds: 10
+#    statusPageUrlPath: /config-server/info
+#    healthCheckUrlPath: /config-server/health
