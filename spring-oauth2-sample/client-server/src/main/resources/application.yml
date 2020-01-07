@@ -9,10 +9,6 @@ spring:
 #          google:
 #            client-id: your-app-client-id
 #            client-secret: your-app-client-secret
-          local:
-            client-id: client1
-            client-secret: 123456
-            authorization-grant-type: client_credentials
           github:
             client-id: 65c6d10df196925766f5
             client-secret: f3fe282be09820ef3ea84a5de3991877d951e8e7
@@ -22,11 +18,7 @@ spring:
 #          okta:
 #            client-id: your-app-client-id
 #            client-secret: your-app-client-secret
-        provider:
-          local: 
-            authorization-uri: http://locaphost:8080/oauth/authorize
-            token-uri: http://locaphost:8080/oauth/token
-            jwk-set-uri: http://locaphost:8080/oauth/token_key
+#        provider:
 #          okta:
 #            authorization-uri: https://your-subdomain.oktapreview.com/oauth2/v1/authorize
 #            token-uri: https://your-subdomain.oktapreview.com/oauth2/v1/token
