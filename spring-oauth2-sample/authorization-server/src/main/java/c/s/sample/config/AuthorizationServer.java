@@ -35,12 +35,14 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 	private @Autowired PasswordEncoder passwordEncoder;
 
 	/**
-	 * 定义加密约束
+	 * 放开 Token 检查和公钥请求的端点
 	 */
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()")
-				.allowFormAuthenticationForClients();
+		security
+			.tokenKeyAccess("permitAll()")
+			.checkTokenAccess("isAuthenticated()")
+			.allowFormAuthenticationForClients();
 	}
 
 	/**
@@ -49,7 +51,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		ClientDetailsService clientDetailsService = clients.jdbc(dataSource).passwordEncoder(passwordEncoder)
-// 下面两句注释不能用,因为 spring 不会像自动 users表 那样自动创建表oauth_client_details
+// 下面两句注释不能用,因为 spring 不会像 users表 那样自动创建表oauth_client_details
 		// .withClient("cli1").secret(passwordEncoder.encode("123456")).accessTokenValiditySeconds(600_000_000)
 //				.and()
 				.build();
