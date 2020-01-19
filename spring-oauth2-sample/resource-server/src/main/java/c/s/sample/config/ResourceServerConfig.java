@@ -17,9 +17,6 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter  {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-//		http.authorizeRequests().anyRequest().authenticated().and().oauth2ResourceServer(oauth2ResourceServer-> oauth2ResourceServer.jwt(jwt->jwt.jwkSetUri(jwkSetUri)));
-//		http.authorizeRequests(authRequest -> authRequest.anyRequest().authenticated()).oauth2ResourceServer(
-//				oauth2ResourceServer -> oauth2ResourceServer.jwt(jwt -> jwt.decoder(jwtDecoder())));
 		http.authorizeRequests().anyRequest().authenticated()
 			.and()
 			.oauth2ResourceServer().jwt();

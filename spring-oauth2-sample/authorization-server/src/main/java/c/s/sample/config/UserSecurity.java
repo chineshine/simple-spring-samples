@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @date 2019年12月27日
  *
  */
-@Order(4)
+@Order(2)
 @Configuration
 @EnableWebSecurity(debug = true)
 public class UserSecurity extends WebSecurityConfigurerAdapter {
@@ -28,8 +28,8 @@ public class UserSecurity extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.antMatcher("/**").authorizeRequests().antMatchers("/oauth/authorize**", "/login**", "/error**").permitAll()
-			.and()
+//			.antMatcher("/**").authorizeRequests().antMatchers("/oauth/authorize**", "/login**", "/error**").permitAll()
+//			.and()
 			.authorizeRequests().mvcMatchers("/.well-known/jwks.json", "/actuator", "/actuator/**", "/h2-console", "/h2-console/**")
 				.permitAll()
 			.anyRequest().authenticated()

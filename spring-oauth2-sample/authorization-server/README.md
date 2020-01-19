@@ -7,7 +7,8 @@
   该注解用于 oauth 认证,获取 token 等
 
 - `@EnableResourceServer`
-  该注解用于 资源服务 的配置,用于 token 访问验证,其使用的过滤器默认 order=3(无法修改) ,故而与注解 `EnableWebSecurity`同时使用时, 后者 order 应大于 3
+  该注解用于 资源服务 的配置,用于 token 访问验证,其使用的过滤器默认 order=3(无法修改) 
+  该注解与 `EnableWebSecurity`同时使用时有冲突,授权服务与资源服务在同一个项目时,两者对应过滤器会根据 `@Order` 进行拦截,顺序靠前的过滤器拦截后会导致顺序靠后的过滤器拦截不到,建议只使用其中一个
  
 ## grant_type 类型
 ```

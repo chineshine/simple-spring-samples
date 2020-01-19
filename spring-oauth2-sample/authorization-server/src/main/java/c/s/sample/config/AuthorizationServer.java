@@ -35,7 +35,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 	private @Autowired PasswordEncoder passwordEncoder;
 
 	/**
-	 * 放开 Token 检查和公钥请求的端点
+	 * 放开 Token检查 和 公钥请求 的端点
 	 */
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
