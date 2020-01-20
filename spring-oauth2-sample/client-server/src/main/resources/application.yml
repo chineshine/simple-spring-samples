@@ -9,6 +9,12 @@ spring:
 #          google:
 #            client-id: your-app-client-id
 #            client-secret: your-app-client-secret
+          client1:
+            client-id: client1
+            client-secret: 123456
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:11001/
+            scope: write
           github:
           #  expired
             client-id: 65c6d10df196925766f5
@@ -19,7 +25,11 @@ spring:
 #          okta:
 #            client-id: your-app-client-id
 #            client-secret: your-app-client-secret
-#        provider:
+        provider:
+          client1: 
+            authorization-uri: http://localhost:8080/oauth/authorize
+            token-uri: http://localhost:8080/oauth/token
+            jwk-set-uri: http://localhost:8080/.well-known/jwks.json
 #          okta:
 #            authorization-uri: https://your-subdomain.oktapreview.com/oauth2/v1/authorize
 #            token-uri: https://your-subdomain.oktapreview.com/oauth2/v1/token

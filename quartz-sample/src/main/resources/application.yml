@@ -1,0 +1,17 @@
+server:
+  port: 9090
+
+spring:
+#  profiles:
+#    include:
+
+# spring quartz jdbc 配置  (待完善)
+  quartz:
+#    job-store-type: jdbc
+#    jdbc: 
+#      initialize-schema: always
+#      schema: classpath:org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql
+
+
+# jdbc
+# jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=yes&autoReconnect=true&failOverReadOnly=false&amp;characterEncoding=UTF-8

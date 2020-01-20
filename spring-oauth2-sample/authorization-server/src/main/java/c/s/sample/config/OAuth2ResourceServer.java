@@ -39,6 +39,12 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
 					);
 		// 此处不支持 httpBasic 认证,由后续的过滤器支持
 		http.httpBasic().disable();
+		
+		http.csrf()
+			.ignoringRequestMatchers(request -> "/introspect".equals(request.getRequestURI()))
+			.ignoringAntMatchers("/h2-console", "/h2-console/**")
+			.and()
+			.headers(headers -> headers.frameOptions().sameOrigin());
 	}
 	
 }
