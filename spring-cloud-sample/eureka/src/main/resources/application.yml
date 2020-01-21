@@ -1,15 +1,17 @@
 server:
   port: 8761
-  
+
 spring:
   application:
     name: eureka-server
-    
+
 eureka:
+# 参考配置类: org.springframework.cloud.netflix.eureka.EurekaInstanceConfigBean
   instance:
     hostname: localhost
-  client: 
+  client:
+    # 参考配置类: org.springframework.cloud.netflix.eureka.EurekaClientConfigBean
     registerWithEureka: false
     fetchRegistry: false
-    serviceUrl: 
+    serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
