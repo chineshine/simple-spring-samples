@@ -28,3 +28,5 @@ eureka:
 #       roles: user
 # defaultZone 配置:
 # defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+# 记得关闭 security 的 csrf ,否则会导致客户端服务无法注册到 eureka 中
+# 生产环境可将 csrf 设置为 sameOrigin ,以避免外部服务注册进来
