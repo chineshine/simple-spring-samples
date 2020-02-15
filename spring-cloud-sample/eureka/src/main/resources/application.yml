@@ -8,6 +8,7 @@ spring:
 eureka:
 # 参考配置类: org.springframework.cloud.netflix.eureka.EurekaInstanceConfigBean
   instance:
+    # instanceId: ${spring.application.name}:${server:port}
     hostname: localhost
   client:
     # 参考配置类: org.springframework.cloud.netflix.eureka.EurekaClientConfigBean
