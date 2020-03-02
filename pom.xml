@@ -85,6 +85,8 @@
 		<module>spring-cloud-sample</module>
 		<module>spring-webflux-sample</module>
 		<module>spring-amqp-sample</module>
+		<module>spring-task-sample</module>
+		<module>spring-flyway-sample</module>
 	</modules>
 
 </project>
