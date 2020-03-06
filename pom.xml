@@ -87,6 +87,7 @@
 		<module>spring-amqp-sample</module>
 		<module>spring-task-sample</module>
 		<module>spring-flyway-sample</module>
+		<module>event-listener-sample</module>
 	</modules>
 
 </project>
