@@ -66,6 +66,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
@@ -85,7 +86,6 @@
 		<module>spring-cloud-sample</module>
 		<module>spring-webflux-sample</module>
 		<module>spring-amqp-sample</module>
-		<module>spring-task-sample</module>
 		<module>spring-flyway-sample</module>
 		<module>event-listener-sample</module>
 	</modules>
