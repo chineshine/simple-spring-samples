@@ -89,6 +89,7 @@
 		<module>spring-flyway-sample</module>
 		<module>event-listener-sample</module>
 		<module>spring-websocket-sample</module>
+		<module>spring-mail-sample</module>
 	</modules>
 
 </project>

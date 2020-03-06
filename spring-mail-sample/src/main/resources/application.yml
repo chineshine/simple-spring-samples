@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-mail-sample
+    
+# org.springframework.boot.autoconfigure.mail.MailProperties    
+  mail:
+    # 邮件主机,如: smtp.163.com
+    host: 
+    port: 
+    username: 
+    password: 
