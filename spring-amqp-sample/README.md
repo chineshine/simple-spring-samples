@@ -32,3 +32,8 @@ spring 利用 amqp 协议,通过使用 rabbit 进行消息通信
 - 通过属性`spring.rabbitmq.listener.type`可以切换监听器容器类型 `simple`,`direct`,默认`simple`
 - 如果定义了`Bean:MessageConverter`,会自动关联并装配到 默认 factory
 - 如果要创建更多 factory,或覆盖默认的 factory,`spring boot` 提供了 `org.springframework.boot.autoconfigure.amqp.SimpleRabbitListenerContainerFactoryConfigurer` 和 `org.springframework.boot.autoconfigure.amqp.DirectRabbitListenerContainerFactoryConfigurer` 用来初始化`SimpleRabbitListenerContainerFactory` 和 `DirectRabbitListenerContainerFactory`
+
+## 参考手册
+```
+  https://spring.io/guides/gs/messaging-rabbitmq/#scratch
+```
