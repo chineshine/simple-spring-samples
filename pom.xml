@@ -90,6 +90,7 @@
 		<module>event-listener-sample</module>
 		<module>spring-websocket-sample</module>
 		<module>spring-mail-sample</module>
+		<module>spring-hateoas-sample</module>
 	</modules>
 
 </project>
