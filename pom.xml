@@ -76,7 +76,6 @@
 	</build>
 
 	<modules>
-		<module>spring-boot-sample</module>
 		<module>mybatis-sample</module>
 		<module>quartz-sample</module>
 		<module>freemarker-sample</module>
@@ -91,6 +90,8 @@
 		<module>spring-websocket-sample</module>
 		<module>spring-mail-sample</module>
 		<module>spring-hateoas-sample</module>
+		<module>spring-boot-sample</module>
+		<module>spring-aop-sample</module>
 	</modules>
 
 </project>
