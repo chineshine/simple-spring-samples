@@ -1,5 +1,7 @@
 package c.s.sample.exception;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,8 +17,21 @@ public enum ErrorCode {
 
 	requestInternalError("http.request.internal_error"),
 	
+	requestNotFound("http.request.not_found"),
+	
+	methodNotAllow("http.request.method_not_allow"),
+	
+	
+	//---------------------auth
+	usernameNotExist("account.username.not_exist"),
+	passwordError("account.password.error")
+	
+	;
+	
+	
 	;
 
+	@JsonValue
 	@Getter
 	private String code;
 }

@@ -6,33 +6,33 @@ import lombok.Getter;
  * @author chineshine
  * @since  2020年3月17日
  */
-public class SampleException extends RuntimeException {
+public class AuthException extends RuntimeException {
 
 	private static final long serialVersionUID = -1572299389780771153L;
 
 	@Getter
 	private ErrorCode errorCode;
 
-	public SampleException() {
+	public AuthException() {
 		super();
 	}
 
-	public SampleException(ErrorCode errorCode) {
+	public AuthException(ErrorCode errorCode) {
 		super(errorCode.getCode());
 		this.errorCode = errorCode;
 	}
 
-	public SampleException(ErrorCode errorCode, String message) {
+	public AuthException(ErrorCode errorCode, String message) {
 		super(message);
 		this.errorCode = errorCode;
 	}
 
-	public SampleException(ErrorCode errorCode, String message, Throwable throwable) {
+	public AuthException(ErrorCode errorCode, String message, Throwable throwable) {
 		super(message, throwable);
 		this.errorCode = errorCode;
 	}
 
-	public SampleException(ErrorCode errorCode, String message, Throwable cause, boolean enableSuppression,
+	public AuthException(ErrorCode errorCode, String message, Throwable cause, boolean enableSuppression,
 			boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 		this.errorCode = errorCode;
