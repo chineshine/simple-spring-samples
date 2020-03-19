@@ -20,5 +20,5 @@
 
 ### 验证信息的国际化
 - 参考 jar 包: `hibernate-validator-{{ version }}.Final.jar`
-- 供参考的国际化文件所在位置: `org.hibernate-validator`
-- 自定义位置在: `src/main/resources`
+- 供参考的国际化配置文件所在包的位置: `org.hibernate-validator`
+- 自定义位置在: `src/main/resources/ValidationMessages*.properties`
