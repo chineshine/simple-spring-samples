@@ -53,5 +53,15 @@ public class SampleController {
 		sampleService.doService();
 		return "success";
 	}
+	
+	@GetMapping("/doaop")
+	public String doAop() {
+		try {
+			Thread.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return "success";
+	}
 
 }

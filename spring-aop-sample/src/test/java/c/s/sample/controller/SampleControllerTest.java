@@ -33,6 +33,7 @@ public class SampleControllerTest extends ControllerTestBase {
 		variables.put("name", "1");
 		ResponseEntity<String> responseEntity = testRestTemplate.exchange(uri, HttpMethod.GET, requestEntity,
 				String.class, variables);
+		log.info(responseEntity.toString());
 		log.info(responseEntity.getBody());
 		log.info(responseEntity.getStatusCode() + "");
 		assertNotEquals(HttpStatus.OK, responseEntity.getStatusCode());
