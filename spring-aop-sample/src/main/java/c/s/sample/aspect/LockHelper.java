@@ -41,6 +41,8 @@ public class LockHelper {
 		// 将锁的信息存储到 redis 当中
 	}
 	
+	
+	
 	/**
 	 * 判断是否已锁
 	 * @return
