@@ -1,6 +1,5 @@
 package c.s.sample.config.exception;
 
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import c.s.sample.exception.ErrorCode;
@@ -19,14 +18,12 @@ public class Response {
 
 	@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 	private ErrorCode errorCode;
-	
+
 	private String message;
-	
+
 	@Override
 	public String toString() {
-		return "";
+		return "{errorCode: " + errorCode.getCode() + "," + "message: " + message + "}";
 	}
-	
-	
 
 }

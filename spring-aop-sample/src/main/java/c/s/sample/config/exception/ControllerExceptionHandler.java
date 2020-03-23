@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestControllerAdvice
 //@ControllerAdvice
-public class CommonExceptionHandler {
+public class ControllerExceptionHandler {
 
 	@ExceptionHandler(SampleException.class)
 	public HttpEntity<Response> handleException(SampleException e) {

@@ -1,9 +1,8 @@
 package c.s.sample.config.exception;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,32 +19,32 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @RestController
-public class SystemErrorHandler implements ErrorController {
+public class ApplicationErrorHandler extends AbstractErrorHandler {
 	private final String ERROR_PATH = "/error";
 
+	public ApplicationErrorHandler(ErrorAttributes errorAttributes) {
+		super(errorAttributes);
+	}
+
 	@GetMapping(ERROR_PATH)
-	public HttpEntity<Response> handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-		int statusCode = httpServletResponse.getStatus();
-		HttpStatus status = HttpStatus.valueOf(statusCode);
-		log.error("返回的状态码(statusCode)为: " + status);
+	public HttpEntity<Response> handleError(HttpServletRequest httpServletRequest) {
+		HttpStatus status = getStatus(httpServletRequest);
+		log.error("当前 http 请求的状态是: " + status);
 		Response response = null;
+
 		switch (status) {
 		case NOT_FOUND:
 			response = new Response(ErrorCode.requestNotFound, "请求不存在");
-			break;
-		case INTERNAL_SERVER_ERROR:
-			response = new Response(ErrorCode.requestInternalError, "服务内部错误");
 			break;
 		case METHOD_NOT_ALLOWED:
 			response = new Response(ErrorCode.methodNotAllow, "请求方式不被允许");
 			break;
 		default:
-			response = new Response(ErrorCode.requestInternalError, "服务内部错误");
+			String message = getExceptionMessage(httpServletRequest);
+			response = new Response(ErrorCode.requestInternalError, message);
 			break;
 		}
-
 		return new ResponseEntity<Response>(response, status);
-
 	}
 
 	@Override
