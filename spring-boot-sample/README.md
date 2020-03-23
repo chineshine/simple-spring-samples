@@ -1,7 +1,8 @@
 # spring boot
 
 ## 验证
-- 所在包: `c.s.sample.validation`  
+- 所在包: `c.s.sample.validation` 
+ 
 ### 验证方式
 - 简单验证: `c.s.sample.validation.simple`  
   1. 在传参的实体类上,定义约束注解  
