@@ -55,6 +55,17 @@ services:
 #      networks:
 #        - spring-sample
 
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes: 
+      - "/data/redis/data:/data"
+      - "/data/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf"
+    networks: 
+      -spring-sample
 
 networks:
   spring-sample:
