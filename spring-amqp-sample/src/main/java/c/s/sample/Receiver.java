@@ -1,7 +1,6 @@
 package c.s.sample;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.function.Supplier;
 
 import org.springframework.stereotype.Component;
 
