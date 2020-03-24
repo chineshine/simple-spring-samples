@@ -13,11 +13,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public enum ErrorCode {
-	badRequest("http.request.bad_request"), requestInternalError("http.request.internal_error"),
-	requestNotFound("http.request.not_found"), methodNotAllow("http.request.method_not_allow"),
+	badRequest("http.request.bad_request"), 
+	
+	requestInternalError("http.request.internal_error"),
+	
+	requestNotFound("http.request.not_found"), 
+	
+	methodNotAllow("http.request.method_not_allow"),
 
 	// ---------------------auth
-	usernameNotExist("account.username.not_exist"), passwordError("account.password.error")
+	usernameNotExist("account.username.not_exist"), 
+	
+	passwordError("account.password.error")
 
 	;
 

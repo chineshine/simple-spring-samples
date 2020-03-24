@@ -16,7 +16,6 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @RestControllerAdvice
-//@ControllerAdvice
 public class ControllerExceptionHandler {
 
 	@ExceptionHandler(SampleException.class)

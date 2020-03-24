@@ -21,12 +21,12 @@ public abstract class AbstractErrorHandler implements ErrorController {
 	public AbstractErrorHandler(ErrorAttributes errorAttributes) {
 		this.errorAttributes = errorAttributes;
 	}
-	
+
 	protected Map<String, Object> getErrorAttributes(HttpServletRequest request, boolean includeStackTrace) {
 		WebRequest webRequest = new ServletWebRequest(request);
 		return this.errorAttributes.getErrorAttributes(webRequest, includeStackTrace);
 	}
-	
+
 	protected boolean getTraceParameter(HttpServletRequest request) {
 		String parameter = request.getParameter("trace");
 		if (parameter == null) {
@@ -34,7 +34,7 @@ public abstract class AbstractErrorHandler implements ErrorController {
 		}
 		return !"false".equalsIgnoreCase(parameter);
 	}
-	
+
 	protected HttpStatus getStatus(HttpServletRequest request) {
 		Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
 		if (statusCode == null) {
@@ -42,16 +42,20 @@ public abstract class AbstractErrorHandler implements ErrorController {
 		}
 		try {
 			return HttpStatus.valueOf(statusCode);
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			return HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 	}
 
+	/**
+	 * 获取异常抛出时的报错信息,不包括堆栈信息
+	 * @param request
+	 *          http request
+	 * @return
+	 */
 	protected String getExceptionMessage(HttpServletRequest request) {
-		Map<String, Object> map =getErrorAttributes(request, false);
+		Map<String, Object> map = getErrorAttributes(request, false);
 		return map.getOrDefault("message", "系统内部错误").toString();
-		
 	}
-	
+
 }
