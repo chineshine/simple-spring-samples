@@ -92,6 +92,7 @@
 		<module>spring-hateoas-sample</module>
 		<module>spring-boot-sample</module>
 		<module>spring-aop-sample</module>
+		<module>spring-redis-sample</module>
 	</modules>
 
 </project>
