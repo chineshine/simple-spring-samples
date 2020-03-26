@@ -93,6 +93,7 @@
 		<module>spring-boot-sample</module>
 		<module>spring-aop-sample</module>
 		<module>spring-redis-sample</module>
+		<module>spring-cache-sample</module>
 	</modules>
 
 </project>
