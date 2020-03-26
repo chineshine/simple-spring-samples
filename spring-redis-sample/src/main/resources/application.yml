@@ -1,0 +1,15 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: spring-redis-sample
+    
+  redis:
+    host: 172.16.50.26
+    password: 123456
+
+  data:
+    redis:
+      repositories:
+        enabled: false    
