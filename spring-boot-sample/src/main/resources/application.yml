@@ -1,2 +1,9 @@
 server:
   port: 8099
+  
+  
+spring:
+  messages:
+    basename: i18n/m
+# 使用 code 作为默认的国际化信息
+#    use-code-as-default-message: true

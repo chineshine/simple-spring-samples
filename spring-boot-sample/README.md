@@ -1,5 +1,9 @@
 # spring boot
 
+## 国际化
+- 配置参考类: `org.springframework.boot.autoconfigure.context.MessageSourceProperties`  
+- 参考包: `c.s.sample.i18n`
+
 ## 验证
 - 所在包: `c.s.sample.validation` 
  
