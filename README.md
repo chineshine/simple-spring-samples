@@ -3,10 +3,14 @@ some simple samples of spring-boot project
 
 ## samples
 - spring-boot-sample  
-  about form or fields validation.such as simple validation,divide validations into groups,customer validation
+  about internationazation  
+  about form or fields validation.such as simple validation,divide validations into groups,customer validation  
 
 - spring-aop-sample
-  about annotation @RestControllerAdvice. errorcode , '/error' interface ,aop to achive log and distribution-lock
+  about annotation @RestControllerAdvice.  
+  about errorcode  
+  about '/error' interface  
+  about how to use aop to realize log and distribution-lock
 
 - quartz-sample  
   how to use quartz in spring-boot project
