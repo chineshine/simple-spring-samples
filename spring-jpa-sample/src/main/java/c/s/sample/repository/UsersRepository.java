@@ -1,6 +1,6 @@
 package c.s.sample.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
 import org.springframework.stereotype.Repository;
 
 import c.s.sample.model.Users;
@@ -11,7 +11,7 @@ import c.s.sample.model.Users;
  *
  */
 @Repository
-public interface UsersRepository extends JpaRepository<Users, Long>{
+public interface UsersRepository extends JpaRepositoryImplementation<Users, Long>{
 
 	
 }
