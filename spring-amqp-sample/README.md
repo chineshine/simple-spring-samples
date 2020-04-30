@@ -1,5 +1,5 @@
 # spring amqp sample
-spring 利用 amqp 协议,通过使用 rabbit 进行消息通信  
+spring 利用 amqp 协议,通过使用 rabbitmq 进行消息通信  
 
 ## 配置
 ### 配置文件

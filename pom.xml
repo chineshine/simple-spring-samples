@@ -94,6 +94,7 @@
 		<module>spring-aop-sample</module>
 		<module>spring-redis-sample</module>
 		<module>spring-cache-sample</module>
+		<module>publisher</module>
 	</modules>
 
 </project>
