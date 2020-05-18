@@ -4,18 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>c.s.sample</groupId>
-		<artifactId>simple-spring-samples</artifactId>
+		<artifactId>spring-amqp-sample</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>spring-amqp-sample</artifactId>
-	<packaging>pom</packaging>
-
+	<artifactId>publisher</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit-test</artifactId>
@@ -31,8 +29,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<modules>
-		<module>publisher</module>
-		<module>receiver</module>
-	</modules>
 </project>

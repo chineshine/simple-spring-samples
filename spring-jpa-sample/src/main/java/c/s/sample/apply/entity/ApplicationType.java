@@ -1,10 +1,10 @@
-package c.s.sample.applying.entity;
+package c.s.sample.apply.entity;
 
 /**
  * @author chineshine
  * @since  2020年4月30日
  */
-public enum ApplyingType {
+public enum ApplicationType {
 	
 	// 休假申请
 	VACATION,

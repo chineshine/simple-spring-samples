@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringAmqpSampleApplication {
+public class ReceiverApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringAmqpSampleApplication.class, args);
+		SpringApplication.run(ReceiverApplication.class, args);
 	}
 }
