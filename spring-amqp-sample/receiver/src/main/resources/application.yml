@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+#    addresses=amqp://admin:secret@localhost
+    host: 172.16.50.26
+    port: 5672
+    username: admin
+    password: admin
+    
+    
+    

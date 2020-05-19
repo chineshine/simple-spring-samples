@@ -2,6 +2,8 @@ package c.s.sample.config;
 
 import java.util.function.Supplier;
 
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -16,13 +18,25 @@ import org.springframework.core.type.AnnotationMetadata;
  */
 public class RabbitmqBeanDefinition implements ImportBeanDefinitionRegistrar {
 
+	private final String TOPIC = "c.s.#";
+//	private final String TOPIC_PREFIX = "c.s.";
+
 	@Override
 	public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 		ImportBeanDefinitionRegistrar.super.registerBeanDefinitions(importingClassMetadata, registry);
 
-		BeanDefinition queueDefinition = beanDefinition(Queue.class, queueSupplier("queue1"));
-		registry.registerBeanDefinition("queue1", queueDefinition);
+		String queue = "cs-sample";
+		Supplier<Queue> queueSupplier = queueSupplier(queue);
+		BeanDefinition queueDefinition = beanDefinition(Queue.class, queueSupplier);
+		registry.registerBeanDefinition(queue + "-queue", queueDefinition);
 
+		Supplier<TopicExchange> exchangeSupplier = exchangeSupplier(queue + "-exchange");
+		BeanDefinition topicExchangeDefinition = beanDefinition(TopicExchange.class, exchangeSupplier);
+		registry.registerBeanDefinition(queue + "-change", topicExchangeDefinition);
+
+		BeanDefinition bindingDefinition = beanDefinition(Binding.class,
+				bindingSupplier(queueSupplier.get(), exchangeSupplier.get()));
+		registry.registerBeanDefinition(queue + "-exchange", bindingDefinition);
 	}
 
 	public <T> BeanDefinition beanDefinition(Class<T> beanClass, Supplier<T> supplier) {
@@ -54,5 +68,15 @@ public class RabbitmqBeanDefinition implements ImportBeanDefinitionRegistrar {
 			}
 		};
 		return exchangeSupplier;
+	}
+
+	public Supplier<Binding> bindingSupplier(Queue queue, TopicExchange exchange) {
+		Supplier<Binding> bindingSupplier = new Supplier<Binding>() {
+			@Override
+			public Binding get() {
+				return BindingBuilder.bind(queue).to(exchange).with(TOPIC);
+			}
+		};
+		return bindingSupplier;
 	}
 }
