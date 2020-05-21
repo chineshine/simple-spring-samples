@@ -45,7 +45,7 @@ public class UserController {
 		sql.append("select * from users u where 1=1 ");
 		if (StringUtils.hasText(users.getUsername())) {
 			// 格式必须如下, 使用 =: 方式传参,jpa 本身已经对sql注入作了一层处理
-			sql.append("and u.username=:username");
+			sql.append(" and u.username=:username ");
 			criterias.put("username", users.getUsername());
 		}
 		return pageRepository.page(sql, criterias, Users.class, pageable);
@@ -53,7 +53,7 @@ public class UserController {
 
 	/**
 	 * 单表查询分页
-	 *   示例: http://localhost:8080/users/page2?username=zhangsan&sort=id,desc
+	 *   示例: http://localhost:8080/users/page2?username=zhangsan&sort=id,desc&sort=username,asc
 	 * @param users
 	 * @param pageable
 	 * @return

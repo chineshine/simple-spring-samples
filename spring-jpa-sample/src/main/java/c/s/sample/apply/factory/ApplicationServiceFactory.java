@@ -8,7 +8,9 @@ public class ApplicationServiceFactory {
 	
 	public static ApplicationServiceFactory INSTANCE = new ApplicationServiceFactory();
 	
-	
+	public void get() {
+		
+	}
 	
 	private ApplicationServiceFactory() {
 		
