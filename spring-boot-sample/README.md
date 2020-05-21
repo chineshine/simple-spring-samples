@@ -5,8 +5,8 @@
 - 参考包: `c.s.sample.i18n`
 
 ## 验证
-- 所在包: `c.s.sample.validation` 
- 
+- 所在包: `c.s.sample.validation`
+
 ### 验证方式
 - 简单验证: `c.s.sample.validation.simple`  
   1. 在传参的实体类上,定义约束注解  
@@ -19,7 +19,7 @@
   1. 定义自定义注解: `c.s.sample.validation.customer.ArrayNotNull`
   2. 定义校验器: `c.s.sample.validation.customer.ArrayNotNullValidator`
   3. 参考 简单验证
-  
+
 ### 测试  
 - 测试类: `src/test/java` 下有对应包名的测试类    
 
@@ -27,3 +27,9 @@
 - 参考 jar 包: `hibernate-validator-{{ version }}.Final.jar`
 - 供参考的国际化配置文件所在包的位置: `org.hibernate-validator`
 - 自定义位置在: `src/main/resources/ValidationMessages*.properties`
+
+
+## 其余
+### spring controller 参数预处理
+1. 实现接口: HandlerMethodArgumentResolver  
+2. 结合注解 `@ControllerAdvice` 和 `@InitBinder` 使用  
