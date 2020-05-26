@@ -4,7 +4,9 @@ package c.s.sample.apply.entity;
 import lombok.Data;
 
 @Data
-public class ApplicationForm {
+public class ApplicationForm implements ApplicationEntity{
+	
+	private Long id;
 	
 	/**
 	 * 申请类型
