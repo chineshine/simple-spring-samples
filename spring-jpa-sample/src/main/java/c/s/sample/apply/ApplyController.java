@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import c.s.sample.apply.vo.ApplicationBlank;
 import lombok.extern.slf4j.Slf4j;
 
-/**
+/*
  * @author chineshine
  * @since  2020年5月20日
  */

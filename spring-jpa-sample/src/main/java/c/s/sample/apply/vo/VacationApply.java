@@ -21,11 +21,11 @@ public class VacationApply implements ApplicationBlank {
 	private Long id;
 
 	private Integer days;
+	
+	private String status;
+	
+	private String applicant;
 
-	@Override
-	public Long getId() {
-		return id;
-	}
 
 
 

@@ -21,6 +21,10 @@ public interface ApplicationBlank {
 	public Long getId();
 
 	public String getDescription();
+	
+	public String getApplicant();
+	
+	public String getStatus();
 
 	static Class<?> getSubClassType(String applicationType) {
 		Reflections reflections = new Reflections("c.s.sample.apply.vo");
