@@ -26,7 +26,7 @@ public interface ApplicationBlank {
 	
 	public String getStatus();
 
-	static Class<?> getSubClassType(String applicationType) {
+	static Class<?> getSubClassType(ApplicationType applicationType) {
 		Reflections reflections = new Reflections("c.s.sample.apply.vo");
 		Set<Class<?>> annotatedClasses = reflections.getTypesAnnotatedWith(Application.class);
 		if (CollectionUtils.isEmpty(annotatedClasses)) {
@@ -35,7 +35,7 @@ public interface ApplicationBlank {
 		List<Class<?>> clazzes = annotatedClasses.stream().filter(x -> {
 			Application application = x.getAnnotation(Application.class);
 
-			if (application.applicationType().name().equals(applicationType)
+			if (application.applicationType().equals(applicationType)
 					&& ApplicationBlank.class.isAssignableFrom(x)) {
 				return true;
 			}

@@ -34,13 +34,19 @@ public class ApplyController {
 		log.info("-------------");
 
 		log.info(json.get("days").asText());
-		String applicationType = json.get("applicationType").asText();
-		Class<?> subclass = ApplicationBlank.getSubClassType(applicationType);
-		ApplicationBlank apply = (ApplicationBlank) new ObjectMapper().convertValue(json, subclass);
+		try {
+			String type = json.get("applicationType").asText();
+			ApplicationType applicationType = ApplicationType.valueOf(type);
+			Class<?> subclass = ApplicationBlank.getSubClassType(applicationType);
+			ApplicationBlank apply = (ApplicationBlank) new ObjectMapper().convertValue(json, subclass);
+			ApplicationService applicationService = applicationServiceFactory.get(applicationType);
+			log.info(apply.toString());
+			applicationService.doApply(apply);
 
-		ApplicationService applicationService = applicationServiceFactory.get(ApplicationType.valueOf(applicationType));
-		log.info(apply.toString());
-		applicationService.doApply(apply);
+		} catch (IllegalArgumentException e) {
+			log.error(e.getMessage(), e);
+			throw new RuntimeException("不支持该种类型申请");
+		}
 
 		return "id";
 	}
