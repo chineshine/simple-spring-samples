@@ -64,7 +64,7 @@ public class ThreadPool {
 	 */
 
 	/**
-	 * 自定义拒绝策略1
+	 * 自定义拒绝策略1  未验证
 	 * @author chineshine
 	 * @since  2020年6月3日
 	 */
@@ -87,7 +87,7 @@ public class ThreadPool {
 	}
 
 	/**
-	 * 拒绝策略2
+	 * 拒绝策略2  未验证
 	 * @author chineshine
 	 * @since  2020年6月3日
 	 */
