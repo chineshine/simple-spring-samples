@@ -1,0 +1,30 @@
+server: 
+  port: 7777
+  
+spring: 
+  application: 
+    name: spring-batch-sample
+    
+  datasource:
+    ## 数据库地址
+    url: jdbc:h2:mem:test
+    ## 数据库用户名
+    username: sa
+    ## 数据库密码
+    password:
+    ## hikari 数据库链接池
+    hikari:
+      ## 连接池测试
+      connectionTestQuery: SELECT 1
+      ## 加入连接池前执行的sql
+      connectionInitSql: SELECT 1
+    ## 数据库驱动
+    driver-class-name: org.h2.Driver
+    
+  h2: 
+    console: 
+      enabled: true
+      path: /h2-console
+      settings: 
+        trace: true
+        web-allow-others: false    
