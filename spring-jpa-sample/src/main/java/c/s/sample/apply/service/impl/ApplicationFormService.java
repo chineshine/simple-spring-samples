@@ -12,14 +12,7 @@ import c.s.sample.apply.vo.ApplicationBlank;
  * @since  2020年5月25日
  */
 @Service
-public class ApplicationFormService implements ApplicationService{
-	
-
-	@Override
-	public void doApply(ApplicationBlank applicationBlank) {
-		
-		// save(form)
-	}
+public class ApplicationFormService implements ApplicationService {
 
 	@Override
 	public ApplicationEntity saveData(ApplicationBlank blank) {

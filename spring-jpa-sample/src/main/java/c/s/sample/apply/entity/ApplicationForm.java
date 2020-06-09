@@ -22,6 +22,11 @@ public class ApplicationForm implements ApplicationEntity{
 	 * 申请人
 	 */
 	private String applicant;
+	
+	/**
+	 * 提交者
+	 */
+	private String submitter;
 
 	/**
 	 * 申请描述

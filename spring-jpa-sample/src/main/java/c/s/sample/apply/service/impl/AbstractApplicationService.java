@@ -20,4 +20,9 @@ public abstract class AbstractApplicationService implements ApplicationService {
 		return applicationFormService.saveData(blank);
 	}
 
+	@Override
+	public void doApply(ApplicationBlank applicationBlank) {
+		throw new UnsupportedOperationException("暂不支持该申请的操作...");
+	}
+
 }

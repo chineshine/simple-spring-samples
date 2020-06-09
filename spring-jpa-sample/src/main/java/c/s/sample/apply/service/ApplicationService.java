@@ -9,8 +9,10 @@ import c.s.sample.apply.vo.ApplicationBlank;
  */
 public interface ApplicationService {
 	
-	public ApplicationEntity saveData(ApplicationBlank blank);
+	ApplicationEntity saveData(ApplicationBlank blank);
 	
-	public void doApply(ApplicationBlank applicationBlank);
+	default void doApply(ApplicationBlank applicationBlank) {
+		
+	}
 
 }

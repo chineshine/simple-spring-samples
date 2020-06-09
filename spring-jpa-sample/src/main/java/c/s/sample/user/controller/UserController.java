@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import c.s.sample.jpa.page.IPageRepository;
 import c.s.sample.user.entity.Users;
+import c.s.sample.user.projection.UserProjection;
 import c.s.sample.user.repository.UsersRepository;
 
 /**
@@ -79,5 +80,10 @@ public class UserController {
 	@GetMapping("/get/{id}")
 	public Users one(@PathVariable Long id) {
 		return usersRepository.findByIdAndEnabledFalse(id).orElse(null);
+	}
+	
+	@GetMapping("/projection")
+	public List<UserProjection> usersProjection(){
+		return usersRepository.findByEnabled(false);
 	}
 }
