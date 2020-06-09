@@ -11,8 +11,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import c.s.sample.apply.entity.ApplicationType;
-import c.s.sample.apply.factory.ApplicationServiceFactory;
 import c.s.sample.apply.service.ApplicationService;
+import c.s.sample.apply.service.factory.ApplicationServiceFactory;
 import c.s.sample.apply.vo.ApplicationBlank;
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,8 +1,6 @@
 package c.s.sample.helper;
 
-import java.lang.annotation.Annotation;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -23,19 +21,11 @@ public class ApplicationContextHelper implements ApplicationContextAware {
 		this.applicationContext = applicationContext;
 	}
 
-	public <S extends T, T> T getBean(Class<T> clazz, Class<? extends Annotation> annotationType) {
-		Map<String, T> map = applicationContext.getBeansOfType(clazz);
-		for (Entry<String, T> entry : map.entrySet()) {
-			applicationContext.findAnnotationOnBean(entry.getKey(), annotationType);
-		}
-		map.entrySet().forEach(es -> {
-			if (applicationContext.findAnnotationOnBean(es.getKey(), annotationType) != null) {
-
-			}
-		});
-		return null;
-	}
-
+	/**
+	 * 获取某个类在 spring 容器中的所有子类或实现类
+	 * @param clazz
+	 * @return
+	 */
 	public <T> Map<String, T> getBeans(Class<T> clazz) {
 		return applicationContext.getBeansOfType(clazz);
 	}

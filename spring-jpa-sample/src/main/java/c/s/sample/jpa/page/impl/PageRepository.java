@@ -1,4 +1,4 @@
-package c.s.sample.repository.page;
+package c.s.sample.jpa.page.impl;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -18,6 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Repository;
 
+import c.s.sample.jpa.page.IPageRepository;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -53,10 +54,7 @@ public class PageRepository implements IPageRepository {
 	@Override
 	public List<Order> getOrders(Pageable pageable) {
 		Sort sort = pageable.getSort();
-		if (sort.isEmpty()) {
-			return null;
-		}
-		return sort.toList();
+		return sort.isEmpty() ? null : sort.toList();
 	}
 
 	private Long count(StringBuilder sql, Map<String, Object> criterias) {
@@ -68,7 +66,7 @@ public class PageRepository implements IPageRepository {
 
 	private void setParametes(Query query, Map<String, Object> criterias) {
 		if (criterias.isEmpty()) {
-			log.info("条件查询的条件为空");
+			log.warn("未置入任何查询条件");
 			return;
 		}
 		Set<Entry<String, Object>> criteriaSet = criterias.entrySet();

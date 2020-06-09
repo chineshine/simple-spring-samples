@@ -1,4 +1,4 @@
-package c.s.sample.model;
+package c.s.sample.user.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +20,7 @@ public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Long id;
 
 	private String username;
 

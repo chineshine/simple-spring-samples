@@ -1,4 +1,4 @@
-package c.s.sample.repository.page;
+package c.s.sample.jpa.page;
 
 import java.util.List;
 import java.util.Map;

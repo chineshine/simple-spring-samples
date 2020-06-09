@@ -1,4 +1,4 @@
-package c.s.sample.apply.factory;
+package c.s.sample.apply.service.factory;
 
 import java.util.Map;
 import java.util.Map.Entry;

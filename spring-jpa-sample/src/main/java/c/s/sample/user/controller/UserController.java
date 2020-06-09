@@ -1,4 +1,4 @@
-package c.s.sample.controller;
+package c.s.sample.user.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,12 +13,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import c.s.sample.model.Users;
-import c.s.sample.repository.UsersRepository;
-import c.s.sample.repository.page.IPageRepository;
+import c.s.sample.jpa.page.IPageRepository;
+import c.s.sample.user.entity.Users;
+import c.s.sample.user.repository.UsersRepository;
 
 /**
  * @author chineshine
@@ -73,5 +74,10 @@ public class UserController {
 	@GetMapping
 	public List<Users> users() {
 		return usersRepository.findAll();
+	}
+	
+	@GetMapping("/get/{id}")
+	public Users one(@PathVariable Long id) {
+		return usersRepository.findByIdAndEnabledFalse(id).orElse(null);
 	}
 }
