@@ -96,6 +96,8 @@
 		<module>spring-cache-sample</module>
 		<module>spring-batch-sample</module>
 		<module>spring-thread-pool-sample</module>
+		<module>spring-activiti-sample</module>
+		<module>spring-flowable-sample</module>
 	</modules>
 
 </project>
