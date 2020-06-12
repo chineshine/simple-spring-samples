@@ -65,7 +65,7 @@ services:
       - "/data/redis/data:/data"
       - "/data/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf"
     networks: 
-      -spring-sample
+      - spring-sample
 
 networks:
   spring-sample:
