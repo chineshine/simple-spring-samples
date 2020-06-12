@@ -1,0 +1,61 @@
+version: '3'
+services: 
+  flowable-idm:
+    image: flowable/flowable-idm:6.5.0
+    ports: 
+      - "18888:8080"
+    environment: 
+      SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgress:5432/flowable
+#      SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.mariadb.jdbc.Driver
+#      SPRING_DATASOURCE_URL: jdbc:mariadb:sequential://172.16.140.55:3306/flowable
+      # 连接数据库的账号
+      SPRING_DATASOURCE_USERNAME: root
+      # 连接数据库的密码
+      SPRING_DATASOURCE_PASSWORD: root1234
+      # 登录页面的账号
+      FLOWABLE_REST_APP_ADMIN_USER-ID: admin
+      # 登录用户的密码
+      FLOWABLE_REST_APP_ADMIN_PASSWORD: admin1234
+      # 用户姓名相关,随便填
+      FLOWABLE_REST_APP_ADMIN_FIRST-NAME: chineshine
+      # 用户姓名相关,随便填
+      FLOWABLE_REST_APP_ADMIN_LAST-NAME: pan
+    depends_on: 
+      - postgress
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/flowable-idm"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - cs      
+      
+  postgress: 
+    image: postgres:9.6
+    restart: always
+    environment:
+      # postgress 数据库密码
+      POSTGRES_PASSWORD: root1234
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+    # 初始化脚本位置 
+      - "/data/postgress/initdb.d:/docker-entrypoint-initdb.d"
+    # 数据库数据 挂载      
+      - "/data/postgress/data:/var/lib/postgresql/data"
+    ports: 
+      - 5432:5432
+    networks:
+      - cs
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 18080:8080
+    networks:
+      - cs
+ 
+networks: 
+  cs: 
