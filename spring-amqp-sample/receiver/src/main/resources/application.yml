@@ -1,3 +1,6 @@
+server:
+  port: 11107
+
 spring:
   rabbitmq:
 #    addresses=amqp://admin:secret@localhost

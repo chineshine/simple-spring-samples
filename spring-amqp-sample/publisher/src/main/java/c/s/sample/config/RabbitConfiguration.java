@@ -4,20 +4,17 @@ import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFacto
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.amqp.SimpleRabbitListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 
 //@Configuration
 public class RabbitConfiguration {
 	
-	private @Autowired ConnectionFactory connectionFactory;
-
-	public @Bean SimpleRabbitListenerContainerFactory myFactory(SimpleRabbitListenerContainerFactoryConfigurer configurer){
+	public @Bean SimpleRabbitListenerContainerFactory myFactory(ConnectionFactory connectionFactory,SimpleRabbitListenerContainerFactoryConfigurer configurer){
 		SimpleRabbitListenerContainerFactory factory =
                 new SimpleRabbitListenerContainerFactory();
-		configurer.configure(factory, connectionFactory);
 //		factory.setMessageConverter(messageConverter);
+		configurer.configure(factory, connectionFactory);
 		return factory;
 	} 
 	
