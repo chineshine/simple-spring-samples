@@ -8,8 +8,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import freemarker.core.TemplateElement;
 import freemarker.ext.beans.StringModel;
@@ -41,25 +41,25 @@ public class FreemarkerHelper {
 	 * @param var
 	 * @param parentObject
 	 */
-	public void variableToJsonObject(String var, JSONObject parentObject) {
+	public void variableToJsonObject(String var, JsonObject parentObject) {
 		int index = var.indexOf('.');
 		String entry = var.substring(0, index);
 		String subEntry = var.substring(index + 1);
 
-		JSONObject thisObject = parentObject.getJSONObject(entry);
-		thisObject = thisObject != null ? thisObject : new JSONObject();
+		JsonObject thisObject = (JsonObject) parentObject.get(entry);
+		thisObject = thisObject != null ? thisObject : new JsonObject();
 		if (hasSubObject(subEntry)) {
-			JSONObject subObject = thisObject.getJSONObject(obj);
-			subObject = subObject != null ? subObject : new JSONObject();
+			JsonObject subObject = (JsonObject) thisObject.get(obj);
+			subObject = subObject != null ? subObject : new JsonObject();
 			this.variableToJsonObject(subEntry, subObject);
-			thisObject.put(obj, subObject);
+			thisObject.add(obj, subObject);
 		} else {
-			JSONArray array = thisObject.getJSONArray(strings);
-			array = array != null ? array : new JSONArray();
+			JsonArray array = (JsonArray) thisObject.get(strings);
+			array = array != null ? array : new JsonArray();
 			array.add(subEntry);
-			thisObject.put(strings, array);
+			thisObject.add(strings, array);
 		}
-		parentObject.put(entry, thisObject);
+		parentObject.add(entry, thisObject);
 	}
 
 	/**
