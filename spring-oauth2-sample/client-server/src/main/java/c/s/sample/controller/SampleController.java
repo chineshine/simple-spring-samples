@@ -1,5 +1,6 @@
 package c.s.sample.controller;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -21,6 +24,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -29,28 +33,24 @@ import com.fasterxml.jackson.databind.JsonNode;
  * @date 2019年12月5日
  *
  */
-@SuppressWarnings({ "deprecation" })
+@SuppressWarnings({ "all" })
 @RestController
 public class SampleController {
-
+	private @Autowired RestTemplate restTemplate;
 //	private @Autowired @Qualifier("client1RestTemplate") OAuth2RestTemplate client1RestTemplate;
 
 	@GetMapping("/")
-	public String index(String code) {
+	public String index(String code, String state
+//			,@RegisteredOAuth2AuthorizedClient("client1") OAuth2AuthorizedClient authorizedClient
+//			@AuthenticationPrincipal OAuth2User oauth2User
+	) {
 		if (StringUtils.hasText(code)) {
-//			Map<String, Object> map = new HashMap<String, Object>();
-//			map.put("grant_type", "authorization_code");
-//			map.put("code", code);
-//			map.put("redirect_uri", "http://localhost:11001/");
-//			map.put("scope", "write");
-//			MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
-//			headers.add("Content-Type", "application/x-www-form-urlencoded");
-//			HttpEntity<Map> requestEntity = new HttpEntity<Map>(map, headers);
-//			ResponseEntity<Map> response = client1RestTemplate.exchange("http://localhost:8080/oauth/token",
-//					HttpMethod.POST, requestEntity, Map.class);
+//			RequestEntity<?> entity = RequestEntity.post(URI.create("http://localhost:8080/oauth/token"))
+//					.contentType(MediaType.APPLICATION_FORM_URLENCODED).body("grant_type=authorization_code&code="
+//							+ code + "&redirect_uri=http://localhost:11001/&scope=write$state=" + state);
+//			ResponseEntity<Map> response = restTemplate.exchange(entity,Map.class);
 //			return response.getBody().toString();
-//			JsonNode json = client1RestTemplate.getForObject("http://localhost:8080/api/users/me", JsonNode.class);
-//			return json.asText();
+			return code;
 		}
 		return "index";
 	}
