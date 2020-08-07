@@ -8,8 +8,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
-@Configuration
-@EnableResourceServer
+@SuppressWarnings("deprecation")
+//@Configuration
+//@EnableResourceServer
 public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
 
 	private @Autowired TokenStore tokenStore;
@@ -30,6 +31,16 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
+		
+//		http.authorizeRequests(
+//				x -> x
+//				// 只拦截 api 的接口
+//				.mvcMatchers("/.well-known/jwks.json", "/actuator", "/actuator/**", "/h2-console", "/h2-console/**").permitAll()
+//				.antMatchers("/").permitAll()
+//				.anyRequest().authenticated()
+//				.antMatchers("/api/**").authenticated()
+//				.anyRequest().permitAll()
+//					);
 		http.authorizeRequests(
 				x -> x
 				// 只拦截 api 的接口
@@ -38,7 +49,9 @@ public class OAuth2ResourceServer extends ResourceServerConfigurerAdapter {
 					.antMatchers("/").permitAll()
 					);
 		// 此处不支持 httpBasic 认证,由后续的过滤器支持
-		http.httpBasic().disable();
+//		http.httpBasic().disable();
+		http.httpBasic().and().formLogin();
+		
 		
 		http.csrf()
 			.ignoringRequestMatchers(request -> "/introspect".equals(request.getRequestURI()))

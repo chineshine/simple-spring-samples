@@ -13,6 +13,7 @@ import org.springframework.security.oauth2.provider.token.DefaultUserAuthenticat
  * better to adhere to the {@code sub} property defined in the
  * <a target="_blank" href="https://tools.ietf.org/html/rfc7519">JWT Specification</a>.
  */
+@SuppressWarnings("all")
 public class SubjectAttributeUserTokenConverter extends DefaultUserAuthenticationConverter {
 	@Override
 	public Map<String, ?> convertUserAuthentication(Authentication authentication) {

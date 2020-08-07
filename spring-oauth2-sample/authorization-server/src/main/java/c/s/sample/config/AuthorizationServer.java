@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -20,11 +21,13 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
  * @date 2019年12月5日
  *
  */
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 
 	private @Autowired AuthenticationConfiguration authenticationConfiguration;
+//	private @Autowired AuthenticationManager authenticationManager;
 
 	private @Autowired TokenStore tokenStore;
 
@@ -39,10 +42,8 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 	 */
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		security
-			.tokenKeyAccess("permitAll()")
-			.checkTokenAccess("isAuthenticated()")
-			.allowFormAuthenticationForClients();
+		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()")
+				.allowFormAuthenticationForClients();
 	}
 
 	/**
@@ -63,8 +64,11 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 	 */
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.authenticationManager(authenticationConfiguration.getAuthenticationManager()).tokenStore(tokenStore)
-				.accessTokenConverter(jwtAccessTokenConverter);
+		endpoints
+//			.authenticationManager(authenticationManager)
+			.authenticationManager(authenticationConfiguration.getAuthenticationManager())
+			.tokenStore(tokenStore)
+			.accessTokenConverter(jwtAccessTokenConverter);
 	}
 
 }

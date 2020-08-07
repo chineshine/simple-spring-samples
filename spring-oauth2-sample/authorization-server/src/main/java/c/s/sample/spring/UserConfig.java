@@ -12,6 +12,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
  * For configuring the end users recognized by this Authorization Server
  */
 //@Configuration
+@SuppressWarnings("all")
 public class UserConfig extends WebSecurityConfigurerAdapter {
 
 	@Override

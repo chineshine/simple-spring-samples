@@ -18,6 +18,7 @@ import com.nimbusds.jose.jwk.RSAKey;
  * This class adds ad-hoc support in order to better support the other samples in the repo.
  */
 @FrameworkEndpoint
+@SuppressWarnings("all")
 public class JwkSetEndpoint {
 	KeyPair keyPair;
 

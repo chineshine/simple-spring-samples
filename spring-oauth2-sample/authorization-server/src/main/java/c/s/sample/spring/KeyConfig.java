@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * For simplicity, though, this sample doesn't demonstrate key rotation.
  */
 //@Configuration
+@SuppressWarnings("all")
 public class KeyConfig {
 	@Bean
 	KeyPair keyPair() {

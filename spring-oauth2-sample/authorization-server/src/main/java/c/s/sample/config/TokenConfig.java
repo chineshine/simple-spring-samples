@@ -18,6 +18,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
  *
  */
 @Configuration
+@SuppressWarnings("deprecation")
 public class TokenConfig {
 
 	private @Autowired KeyPair keyPair;

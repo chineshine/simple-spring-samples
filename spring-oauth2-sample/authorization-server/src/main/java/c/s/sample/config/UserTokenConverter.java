@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.provider.token.DefaultUserAuthenticat
  * @date 2019年12月26日
  *
  */
+@SuppressWarnings("deprecation")
 public class UserTokenConverter extends DefaultUserAuthenticationConverter{
 
 	@Override

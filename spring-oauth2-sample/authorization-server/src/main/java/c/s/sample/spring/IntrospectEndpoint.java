@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * This class adds ad-hoc support in order to better support the other samples in the repo.
  */
 //@FrameworkEndpoint
+@SuppressWarnings("all")
 public class IntrospectEndpoint {
 	TokenStore tokenStore;
 

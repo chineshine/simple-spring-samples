@@ -1,35 +1,48 @@
 server:
   port: 11001
 
-spring:
-  security:
-    oauth2:
-      client:
-        registration:
+oauth2: 
+  client: 
+    client1: 
+      client-id: client1
+      client-secret: 123456
+      grant-type: authorization_code
+      user-authorization-uri: http://localhost:8080/oauth/authorize
+      access-token-uri: http://localhost:8080/oauth/token
+      scope: write
+      pre-established-redirect-uri: http://localhost:11001/
+      use-current-uri: false
+        
+
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
 #          google:
 #            client-id: your-app-client-id
 #            client-secret: your-app-client-secret
-          client1:
-            client-id: client1
-            client-secret: 123456
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:11001/
-            scope: write
-          github:
-          #  expired
-            client-id: 65c6d10df196925766f5
-            client-secret: f3fe282be09820ef3ea84a5de3991877d951e8e7
+#          client1:
+#            client-id: client1
+#            client-secret: 123456
+#            authorization-grant-type: authorization_code
+#            redirect-uri: http://localhost:11001/
+#            scope: write
+#          github:
+#          #  expired
+#            client-id: 65c6d10df196925766f5
+#            client-secret: f3fe282be09820ef3ea84a5de3991877d951e8e7
 #          facebook:
 #            client-id: your-app-client-id
 #            client-secret: your-app-client-secret
 #          okta:
 #            client-id: your-app-client-id
 #            client-secret: your-app-client-secret
-        provider:
-          client1: 
-            authorization-uri: http://localhost:8080/oauth/authorize
-            token-uri: http://localhost:8080/oauth/token
-            jwk-set-uri: http://localhost:8080/.well-known/jwks.json
+#        provider:
+#          client1: 
+#            authorization-uri: http://localhost:8080/oauth/authorize
+#            token-uri: http://localhost:8080/oauth/token
+#            jwk-set-uri: http://localhost:8080/.well-known/jwks.json
 #          okta:
 #            authorization-uri: https://your-subdomain.oktapreview.com/oauth2/v1/authorize
 #            token-uri: https://your-subdomain.oktapreview.com/oauth2/v1/token
