@@ -27,6 +27,12 @@ spring:
     open-in-view: false
     properties:
       hibernate.dialect: org.hibernate.dialect.H2Dialect
+# 如果要生成审计表, 利用 hibernate 自动生成表的方式生成审计表, 再关闭该配置
+#    hibernate: 
+#      ddl-auto: create-drop
+      
+#  flyway: 
+#    enable: false
       
   h2: 
     console: 
