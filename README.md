@@ -1,6 +1,10 @@
 # simple-spring-samples
 some simple samples of spring-boot project
 
+## prerequisite
+- jdk: 1.8
+- spring-boot: 2.0 +
+
 ## samples
 - spring-boot-sample  
   about internationazation  
