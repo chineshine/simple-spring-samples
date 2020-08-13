@@ -16,7 +16,7 @@ public class SpringWebFluxSampleApplication {
 
 	public static void main(String[] args) {
 		SpringApplication application = new SpringApplication(SpringWebFluxSampleApplication.class);
-		// 由于 pom.xml 引入了web包,默认运行环境仍然是 servlet,需要将其指定为 webflux 的运行环境 netty
+		// 如果 pom.xml 引入了web包,默认运行环境仍然是 servlet,需要将其指定为 webflux 的运行环境 netty
 		application.setWebApplicationType(WebApplicationType.REACTIVE);
 		application.run(args);
 		

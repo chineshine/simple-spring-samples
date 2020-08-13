@@ -22,7 +22,6 @@ public class PigController {
 
 	@GetMapping("/name")
 	public Mono<String> getPigName() {
-//		return we;
-		return null;
+		return Mono.just("peiqi");
 	}
 }
