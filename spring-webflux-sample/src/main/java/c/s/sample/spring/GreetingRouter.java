@@ -1,0 +1,26 @@
+package c.s.sample.spring;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.web.reactive.function.server.RequestPredicates;
+import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.reactive.function.server.RouterFunctions;
+import org.springframework.web.reactive.function.server.ServerResponse;
+
+/**
+ * @author chineshine
+ * @since  2020年8月13日
+ */
+
+@Configuration
+public class GreetingRouter {
+
+	@Bean
+	public RouterFunction<ServerResponse> route(GreetingHandler greetingHandler) {
+
+		return RouterFunctions.route(
+				RequestPredicates.GET("/hello").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)),
+				greetingHandler::hello);
+	}
+}
