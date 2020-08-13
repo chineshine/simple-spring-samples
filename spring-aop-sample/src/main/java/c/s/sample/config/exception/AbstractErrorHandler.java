@@ -14,6 +14,7 @@ import org.springframework.web.context.request.WebRequest;
  * @author chineshine
  * @since  2020年3月23日
  */
+@SuppressWarnings("deprecation")
 public abstract class AbstractErrorHandler implements ErrorController {
 
 	private final ErrorAttributes errorAttributes;
