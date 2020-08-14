@@ -42,7 +42,8 @@
 	<module>feign-server</module>
 	<module>feign-client</module>
 	<module>config-server</module>
-	<module>gateway</module>
 	<module>spring-task-sample</module>
+	<module>gateway</module>
+	<module>consul-client</module>
 	</modules>
 </project>

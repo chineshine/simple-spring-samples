@@ -1,0 +1,20 @@
+server: 
+  port: 20001
+  
+
+spring:
+
+  application: 
+    name: consul-client
+  
+# org.springframework.cloud.consul.ConsulProperties
+  cloud: 
+    consul: 
+      host: localhost
+      port: 8500
+      
+# org.springframework.cloud.consul.discovery.ConsulDiscoveryProperties      
+      discovery: 
+        instance-id: consul-client
+       # instance-group: 
+       # instance-zone: 
