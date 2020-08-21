@@ -56,6 +56,9 @@ public class AopConfig {
 		*.* 表示所有类名+所有方法
 		(..) 表示参数模式
 	 */
+	/**
+	 * {@link Pointcut} 写法参考 {@link org.aspectj.weaver.tools.PointcutPrimitive}
+	 */
 	@Pointcut("execution(* c.s.sample.controller..*.*(..))")
 	public void requestCostPointcut() {
 	}
@@ -104,7 +107,7 @@ public class AopConfig {
 		String declaringTypeName = (String) map.get("declaringTypeName");
 		String methodName = (String) map.get("methodName");
 
-		log.info("请求: " + declaringTypeName + "." + methodName + " 执行结束, 请求耗时: " + cost);
+		log.info("请求: " + declaringTypeName + "." + methodName + " 执行结束, 请求耗时: " + cost +" ms");
 
 		threadLocal.remove();
 	}
