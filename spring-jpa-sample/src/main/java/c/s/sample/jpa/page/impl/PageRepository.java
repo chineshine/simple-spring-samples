@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author chineshine
- * @since  2020年3月26日
+ * @since 2020年3月26日
  */
 @Slf4j
 @Repository
@@ -39,13 +39,9 @@ public class PageRepository implements IPageRepository {
 	public <T> Page<T> page(StringBuilder sql, Map<String, Object> criterias, Class<T> returnClass, Pageable pageable) {
 		TypedQuery<T> query = (TypedQuery<T>) entityManager.createNativeQuery(sql.toString(), returnClass);
 		setParametes(query, criterias);
-
-		int firstResult = 0;
-		if (pageable.hasPrevious()) {
-			firstResult = (pageable.getPageNumber() - 1) * pageable.getPageSize();
-		}
-		query.setFirstResult(firstResult);
-		query.setMaxResults(pageable.getPageSize());
+		int firstResult = pageable.hasPrevious() ? (pageable.getPageNumber() - 1) * pageable.getPageSize() : 0;
+		query.setFirstResult(firstResult).setMaxResults(pageable.getPageSize());
+		
 		List<T> content = query.getResultList();
 		Long count = this.count(sql, criterias);
 		return new PageImpl<T>(content, pageable, count);

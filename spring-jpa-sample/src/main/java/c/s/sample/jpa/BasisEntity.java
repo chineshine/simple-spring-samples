@@ -15,7 +15,7 @@ import lombok.Data;
 
 /**
  * @author chineshine
- * @since  2020年6月8日
+ * @since 2020年6月8日
  */
 @Data
 @MappedSuperclass
@@ -31,9 +31,15 @@ public class BasisEntity {
 
 	private String uuid;
 
-	@Column(name = "INSERT_TIME", updatable = false)
-	private LocalDateTime insertTime;
+	@Column(name = "CREATE_BY", updatable = false)
+	private String createBy;
 
-	@Column(name = "UPDATE_TIME")
-	private LocalDateTime updateTime;
+	@Column(name = "CREATE_TIME", updatable = false)
+	private LocalDateTime createTime;
+
+	@Column(name = "LAST_UPDATE")
+	private LocalDateTime lastUpdate;
+
+	@Column(name="LAST_UPDATE_BY")
+	private String lastUpdateBy;
 }

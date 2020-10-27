@@ -19,14 +19,14 @@ public class BasisEntityListener {
 		final LocalDateTime currentTime = LocalDateTime.now(ZoneId.systemDefault());
 		entity.setUuid(uuid);
 		entity.setDeleted(false);
-		entity.setInsertTime(currentTime);
-		entity.setUpdateTime(currentTime);
+		entity.setCreateTime(currentTime);
+		entity.setLastUpdate(currentTime);
 	}
 
 	@PreUpdate
 	public void update(BasisEntity entity) {
 		final LocalDateTime currentTime = LocalDateTime.now(ZoneId.systemDefault());
-		entity.setUpdateTime(currentTime);
+		entity.setLastUpdate(currentTime);
 	}
 
 }
