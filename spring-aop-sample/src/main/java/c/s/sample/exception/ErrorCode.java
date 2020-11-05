@@ -13,6 +13,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public enum ErrorCode {
+	/**
+	 * 所有code格式要求: 资源.操作.结果
+	 */
+	//------------------------------http
 	badRequest("http.request.bad_request"), 
 	
 	requestInternalError("http.request.internal_error"),
@@ -22,9 +26,9 @@ public enum ErrorCode {
 	methodNotAllow("http.request.method_not_allow"),
 
 	// ---------------------auth
-	usernameNotExist("account.username.not_exist"), 
+	usernameNotExist("account.authenticate.username_not_exist"), 
 	
-	passwordError("account.password.error")
+	passwordError("account.authenticate.password_error")
 
 	;
 
