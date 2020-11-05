@@ -1,5 +1,6 @@
 package c.s.sample.service;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -59,6 +60,11 @@ public class FreemarkerService {
 			String content = this.parseToString(map, template);
 			fos.write(content.getBytes());
 			fos.close();
+	}
+	
+	public ByteArrayInputStream writeToInputStream(Map<String, Object> map, String template) throws IOException, TemplateException {
+		String data = this.parseToString(map, template);
+		return new ByteArrayInputStream(data.getBytes());
 	}
 
 	public Set<String> referenceSet(String uri) throws TemplateModelException, IOException {
